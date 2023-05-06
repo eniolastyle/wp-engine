@@ -1,0 +1,16 @@
+{
+  "TableName": "wp_lock",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "LockID",
+      "AttributeType": "S"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "LockID",
+      "KeyType": "HASH"
+    }
+  ],
+  "BillingMode": "PAT_PER_REQUEST"
+}
