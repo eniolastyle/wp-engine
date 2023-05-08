@@ -9,7 +9,8 @@ sudo apt-get install -y apache2 mysql-server php php-mysql
 
 sudo wget https://wordpress.org/latest.tar.gz
 sudo tar -xzf latest.tar.gz
-sudo mv wordpress /var/www/html/
+sudo rm -rf /var/www/html/*
+sudo mv wordpress/* /var/www/html/
 
 # Configuring MySQL database
 
@@ -20,16 +21,31 @@ sudo mysql -u root -e "FLUSH PRIVILEGES"
 
 # Wordpress Setup
 
-cd /var/www/html/wordpress
+cd /var/www/html/
 sudo cp wp-config-sample.php wp-config.php
 sudo sed -i "s/database_name_here/${db}/g" wp-config.php
 sudo sed -i "s/username_here/${user}/g" wp-config.php
 sudo sed -i "s/password_here/${pass}/g" wp-config.php
-sudo chown -R www-data:www-data /var/www/html/wordpress
-sudo chmod -R 755 /var/www/html/wordpress
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
 
 # Install New theme
+
+sudo wget "${theme}"
+sudo unzip $(basename ${theme}) -d /var/www/html/wp-content/themes/
+sudo wp theme activate $(basename ${theme})
+
 
 # Restarting Apache
 
 sudo systemctl restart apache2
+
+#  ====================== EXTRAS ===========================
+# sudo apt-get install -y unzip
+# if [[ -z "${theme}" ]]; then
+#     sudo wget https://downloads.wordpress.org/theme/astra.3.7.2.zip
+#     sudo unzip astra.3.7.2.zip -d /var/www/html/wp-content/themes/
+# else 
+#     sudo wget "${theme}"
+#     sudo unzip $(basename ${theme}) -d /var/www/html/wp-content/themes/
+# fi
