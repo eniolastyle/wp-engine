@@ -4,6 +4,7 @@ data "template_file" "wp-app-file" {
     db   = var.db
     user = var.user
     pass = var.pass
+    theme = var.theme
   }
 }
 

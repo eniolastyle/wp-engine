@@ -16,6 +16,12 @@ variable "pass" {
   description = "Password required"
 }
 
+variable "theme" {
+  type = string
+  default = "https://downloads.wordpress.org/theme/astra.3.7.2.zip"
+  description = "Provide your custome theme"
+}
+
 variable "region" {
   type        = string
   default     = "us-east-1"
