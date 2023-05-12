@@ -9,11 +9,6 @@ variable "pass" {
 
 }
 
-variable "theme" {
-
-}
-
-
 variable "region" {
 
 }

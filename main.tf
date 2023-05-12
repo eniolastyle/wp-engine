@@ -28,5 +28,4 @@ module "wp_engine" {
   region        = var.region
   key_name      = var.key_name
   instance_type = var.instance_type
-  theme         = var.theme
 }

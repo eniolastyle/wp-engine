@@ -39,13 +39,3 @@ sudo wp theme activate $(basename ${theme})
 # Restarting Apache
 
 sudo systemctl restart apache2
-
-#  ====================== EXTRAS ===========================
-# sudo apt-get install -y unzip
-# if [[ -z "${theme}" ]]; then
-#     sudo wget https://downloads.wordpress.org/theme/astra.3.7.2.zip
-#     sudo unzip astra.3.7.2.zip -d /var/www/html/wp-content/themes/
-# else 
-#     sudo wget "${theme}"
-#     sudo unzip $(basename ${theme}) -d /var/www/html/wp-content/themes/
-# fi
